@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Elevator Saga - help and API documentation</title>
+    <title>Elevator Saga - Manuale</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="font-awesome-4.1-1.0/css/font-awesome.min.css" type="text/css" media="all">
     <link href='//fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
@@ -16,149 +16,209 @@
 <body>
     <div class="container" style="width: 960px">
         <div class="header">
-            <h1>Elevator Saga <em class="emphasis-color">Help and API documentation</em></h1>
+            <h1>Elevator Saga <em class="emphasis-color">Manuale</em></h1>
         </div>
 
         <div class="help">
-            <h2>About the game</h2>
+            <h2>Introduzione</h2>
             <p>
-                This is a game of programming!<br>
-                Your task is to program the movement of elevators, by writing a program in <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide">JavaScript</a>.
+                Questo è un gioco di programmazione!<br>
+                Il tuo compito è scrivere un programma che controlli il comportamento di uno o più ascensori, in altre parole dovrai programmare l'intelligenza artificiale degli ascensori.
             </p>
             <p>
-                The goal is to transport people in an efficient manner.<br>
-                Depending on how well you do it, you can progress through the ever more difficult challenges.<br>
-                Only the very best programs will be able to complete all the challenges.
+                L'obiettivo è trasportare persone in maniera efficiente.<br>
+                Questo vuol dire:<br>
+                1&#41; Trasportare più persone possibili nel <em>minor tempo</em> possibile.<br>
+                2&#41; Ridurre al minimo il <em>tempo di attesa</em> delle persone che vogliono usare l'ascensore.<br>
+                3&#41; Ridurre al minimo il <em>numero di mosse (spostamenti)</em> dell'ascensore.<br>
             </p>
 
-            <h2>How to play</h2>
+            <h2>Come giocare</h2>
             <p>
-                Enter your code in the input window below the game view, and press the <span class="emphasis-color">Apply</span> button to start the challenge.<br>
-                You can increase or decrease the speed of time by pressing the <i class="fa fa-plus emphasis-color"></i> and <i class="fa fa-minus emphasis-color"></i> buttons.
-            </p>
-            <p>
-                If your program contains an error, you can use the developer tools in your web browser to try and debug it.
-                If you want to start over with the code, press the <span class="emphasis-color">Reset</span> button. This will revert the code to a working but simplistic implementation.<br>
-                If you have a favorite text editor, such as <a href="http://www.sublimetext.com/">Sublime Text</a>, feel free to edit the code there and paste it into the game editor.<br>
-                Your code is automatically saved in your local storage, so don't worry - it doesn't disappear if you accidentally close the browser.
-            </p>
-            <h2>Basics</h2>
-            <p>
-                Your code must declare an object containing at least two functions called <span class="emphasis-color">init</span> and <span class="emphasis-color">update</span>. Like this:
-            </p>
-            <div><pre><code>{
-    init: function(elevators, floors) {
-        // Do stuff with the elevators and floors, which are both arrays of objects
-    },
-    update: function(dt, elevators, floors) {
-        // Do more stuff with the elevators and floors
-        // dt is the number of game seconds that passed since the last time update was called
-    }
-}</code></pre></div>
-            <p>These functions will then be called by the game during the challenge.<br>
-            <span class="emphasis-color">init</span> will be called when the challenge starts, and <span class="emphasis-color">update</span> repeatedly during the challenge.
-            </p>
-            <p>
-                Normally you will put most of your code in the <span class="emphasis-color">init</span> function, to set up event listeners and logic.
-            </p>
-            <h2>Code examples</h2>
-            <h3>How to control an elevator</h3>
-            <dl>
-                <dt><pre><code>elevator.goToFloor(1);</code></pre></dt>
-                    <dd>Tell the elevator to move to floor 1 after completing other tasks, if any. Note that this will have no effect if the elevator is already queued to go to that floor.</dd>
-                <dt><pre><code>if(elevator.currentFloor() > 2) { ... }</code></pre></dt>
-                    <dd>Calling currentFloor gets the floor number that the elevator currently is on. Note that this is a rounded number and does not necessarily mean the elevator is in a stopped state.</dd>
-            </dl>
-            <h3>Listening for events</h3>
-            <p>It is possible to listen for events, like when stopping at a floor, or a button has been pressed.</p>
-            <dl>
-                <dt><pre><code>elevator.on("idle", function() { elevator.goToFloor(0); });</code></pre></dt>
-                    <dd>Listen for the "idle" event issued by the elevator, when the task queue has been emptied and the elevator is doing nothing. In this example we tell it to move to floor 0.</dd>
-                <dt><pre><code>elevator.on("floor_button_pressed", function(floorNum) { ... } );</code></pre></dt>
-                    <dd>Listen for the "floor_button_pressed" event, issued when a passenger pressed a button inside the elevator. This indicates that the passenger wants to go to that floor.</dd>
-                <dt><pre><code>floor.on("up_button_pressed", function() { ... } );</code></pre></dt>
-                    <dd>Listen for the "up_button_pressed" event, issued when a passenger pressed the up button on the floor they are waiting on. This indicates that the passenger wants to go to another floor.</dd>
-            </dl>
+                Componi il tuo programma con i blocchi di codice che troverai cliccando sui menù <em>Cicli</em>, <em>Eventi</em>, ecc. <br>
+                Per eseguire il tuo codice (e verificare che superi la sfida) clicca sul pulsante <strong>Applica codice</strong>. <br>
+                Nota: il pulsante <strong>Avvia/Pausa</strong> serve a mettere in pausa/riavviare l'esecuzione ma prima di cliccarlo dovrai aver <strong>applicato il tuo codice</strong> come descritto nella frase precedente! <br>
+                Puoi velocizzare o rallentare la velocità di esecuzione del programma cliccando i bottoni <i class="fa fa-plus emphasis-color"></i> e <i class="fa fa-minus emphasis-color"></i>.
 
-            <h2 id="docs">API documentation</h2>
-            <h3>Elevator object</h3>
-            <table class="doctable">
-                <thead><th width="150">Property</th><th width="90">Type</th><th width="190">Explanation</th><th width="*">Example</th></thead>
-                <tbody>
-                    <tr><td>goToFloor</td><td>function</td><td><small>Queue the elevator to go to specified floor number. If you specify true as second argument, the elevator will go to that floor directly, and then go to any other queued floors.</small></td><td><pre><code>elevator.goToFloor(3); // Do it after anything else
-elevator.goToFloor(2, true); // Do it before anything else</code></pre></td></tr>
-                    <tr><td>stop</td><td>function</td><td><small>Clear the destination queue and stop the elevator if it is moving. Note that you normally don't need to stop elevators - it is intended for advanced solutions with in-transit rescheduling logic. Also, note that the elevator will probably not stop at a floor, so passengers will not get out.</small></td><td><pre><code>elevator.stop();</code></pre></td></tr>
-                    <tr><td>currentFloor</td><td>function</td><td><small>Gets the floor number that the elevator currently is on.</small></td><td><pre><code>if(elevator.currentFloor() === 0) {
-    // Do something special?
-}</code></pre></td></tr>
-                    <tr><td>goingUpIndicator</td><td>function</td><td><small>Gets or sets the going up indicator, which will affect passenger behaviour when stopping at floors.</small></td><td><pre><code>if(elevator.goingUpIndicator()) {
-    elevator.goingDownIndicator(false);
-}</code></pre></td></tr>
-                    <tr><td>goingDownIndicator</td><td>function</td><td><small>Gets or sets the going down indicator, which will affect passenger behaviour when stopping at floors.</small></td><td><pre><code>if(elevator.goingDownIndicator()) {
-    elevator.goingUpIndicator(false);
-}</code></pre></td></tr>
-                    <tr><td>maxPassengerCount</td><td>function</td><td><small>Gets the maximum number of passengers that can occupy the elevator at the same time.</small></td><td><pre><code>if(elevator.maxPassengerCount() > 5) {
-    // Use this elevator for something special, because it's big
-}</code></pre></td></tr>
-                    <tr><td>loadFactor</td><td>function</td><td><small>Gets the load factor of the elevator. 0 means empty, 1 means full. Varies with passenger weights, which vary - not an exact measure.</small></td><td><pre><code>if(elevator.loadFactor() < 0.4) {
-    // Maybe use this elevator, since it's not full yet?
-}</code></pre></td></tr>
-                    <tr><td>destinationDirection</td><td>function</td><td><small>Gets the direction the elevator is currently going to move toward. Can be "up", "down" or "stopped".</small></td></tr>
-                    <tr><td>destinationQueue</td><td>array</td><td><small>The current destination queue, meaning the floor numbers the elevator is scheduled to go to. Can be modified and emptied if desired. Note that you need to call checkDestinationQueue() for the change to take effect immediately.</small></td><td><pre><code>elevator.destinationQueue = [];
-elevator.checkDestinationQueue();</code></pre></td></tr>
-                    <tr><td>checkDestinationQueue</td><td>function</td><td><small>Checks the destination queue for any new destinations to go to. Note that you only need to call this if you modify the destination queue explicitly.</small></td><td><pre><code>elevator.checkDestinationQueue();</code></pre></td></tr>
-                    <tr><td>getPressedFloors</td><td>function</td><td><small>Gets the currently pressed floor numbers as an array.</small></td><td><pre><code>if(elevator.getPressedFloors().length > 0) {
-    // Maybe go to some chosen floor first?
-}</code></pre></td></tr>
-                </tbody>
-            </table>
-            <table class="doctable">
-                <thead><th width="150">Event</th><th width="280">Explanation</th><th>Example</th></thead>
-                <tbody>
-                    <tr><td>idle</td><td><small>Triggered when the elevator has completed all its tasks and is not doing anything.</small></td><td><pre><code>elevator.on("idle", function() { ... });</code></pre></td></tr>
-                    <tr><td>floor_button_pressed</td><td><small>Triggered when a passenger has pressed a button inside the elevator.</small></td><td><pre><code>elevator.on("floor_button_pressed", function(floorNum) {
-    // Maybe tell the elevator to go to that floor?
-})</code></pre></td></tr>
-                    <tr><td>passing_floor</td><td><small>Triggered slightly before the elevator will pass a floor. A good time to decide whether to stop at that floor. Note that this event is not triggered for the destination floor. Direction is either "up" or "down".</small></td><td><pre><code>elevator.on("passing_floor", function(floorNum, direction) { ... });</code></pre></td></tr>
-                    <tr><td>stopped_at_floor</td><td><small>Triggered when the elevator has arrived at a floor.</small></td><td><pre><code>elevator.on("stopped_at_floor", function(floorNum) {
-    // Maybe decide where to go next?
-})</code></pre></td></tr>
-                </tbody>
-            </table>
-            <h3>Floor object</h3>
-            <table class="doctable">
-                <thead><th width="150">Property</th><th width="90">Type</th><th width="190">Explanation</th><th width="*">Example</th></thead>
-                <tbody>
-                <tr><td>floorNum</td><td>function</td><td><small>Gets the floor number of the floor object.</small></td><td><pre><code>if(floor.floorNum() > 3) { ... }</code></pre></td></tr>
-                </tbody>
-            </table>
-            <table class="doctable">
-                <thead><th width="150">Event</th><th width="280">Explanation</th><th>Example</th></thead>
-                <tbody>
-                    <tr><td>up_button_pressed</td><td><small>Triggered when someone has pressed the up button at a floor. Note that passengers will press the button again if they fail to enter an elevator.</small></td><td><pre><code>floor.on("up_button_pressed", function() {
-    // Maybe tell an elevator to go to this floor?
-})</code></pre></td></tr>
-                    <tr><td>down_button_pressed</td><td><small>Triggered when someone has pressed the down button at a floor. Note that passengers will press the button again if they fail to enter an elevator.</small></td><td><pre><code>floor.on("down_button_pressed", function() {
-    // Maybe tell an elevator to go to this floor?
-})</code></pre></td></tr>
+                <br><br>
+                Ogni sfida consiste di un palazzo con più piani, chiamati <strong>P0, P1, P2, ...</strong> e uno o più ascensori chiamati <strong>A0, A1, A2, ...</strong> <br>
+                Ogni ascensore avrà una <strong>coda di operazioni</strong> da eseguire, ovvero una lista di piani che visiterà in ordine, dal primo all'ultimo. <br>
+            </p>
 
-                </tbody>
-            </table>
+
+            <h2>Come usare i blocchi di codice</h2>
+            <p>
+                Il tuo programma consiste di ogni blocco di codice che avrai trascinato sulla parte bianca dello schermo (a destra del menù da cui puoi selezionare i blocchi). <br>
+                In generale: <br>
+                1) Quando i blocchi vengono collegati <em>uno dopo l'altro</em> verranno eseguiti in sequenza (dall'alto verso il basso) <br>
+                2) Quando i blocchi vengono collegati <em>uno dentro all'altro</em> allora verranno eseguiti da quello più esterno a quello più interno. <br>
+
+                <br>
+                Un blocco che può contenere altri blocchi al suo interno crea un particolare <strong>contesto</strong> per i blocchi che sono all'interno. <br>
+                <img src="images/manual_nested_example.png" /> <br>
+                Ad esempio in questa immagine il blocco <strong>Per ogni piano</strong> farà sì che le istruzioni contenute al suo interno vengano eseguite per ogni piano presente nella sfida corrente. <br>
+                In questo caso la dicitura <strong>questo piano</strong> al suo interno indica <em>ogni piano</em>, in altre parole, le istruzioni all'interno del blocco "per ogni piano" verranno eseguite una volta per ogni piano.<br>
+                Se invece di "questo piano" venisse selezionata, ad esempio, l'opzione "P0", allora le istruzioni all'interno del blocco "per ogni piano" verrebbero eseguite sempre e solo per il piano "P0". <br>
+
+                <img src="images/manual_nested_example_2.png" /> <br>
+                In questa seconda immagine invece il blocco <strong>Quando A0 sta per passare per un piano</strong> farà sì che le istruzioni al suo interno vengano eseguite ogni volta che l'ascensore "A0" starà per passare per un piano.<br>
+                In questo caso la dicitura <strong>questo piano</strong> al suo interno indica, di volta in volta, il particolare piano che l'ascensore sta per attraversare.<br>
+            </p>
+
+            <h2 id="docs">Funzionalità dei blocchi</h2>
+
+            <h3>Cicli</h3>
+            <p>
+            I <strong>Cicli</strong> permettono di definire operazioni che si applicano <em>ad ogni elemento</em> incluso nel ciclo. Ad esempio "ogni piano del palazzo", oppure "ogni ascensore". <br>
+            <strong>Importante</strong>: ricordati di usare la dicitura <em>questo piano</em>, <em>questo ascensore</em> per applicare correttamente le operazioni all'interno dei cicli.
+            </p>
+            <br>
+            <br>
+
+            <p>
+            <strong>Per ogni ascensore</strong><br>
+            <img src="images/forAllElevators.png" /> <br>
+            Inserendo altri blocchi all'interno di questo ciclo si possono definire comportamenti validi per tutti gli ascensori. <br>
+            L'esempio di destra aggiunge il piano terra "P0" alla coda di tutti gli ascensori. <br>
+            </p>
+
+            <p>
+            <strong>Per ogni piano</strong><br>
+            <img src="images/forAllFloors.png" /> <br>
+            Inserendo altri blocchi all'interno di questo ciclo si possono definire comportamenti validi per tutti i piani. <br>
+            L'esempio di destra aggiunge tutti i piani alla coda dell'ascensore "A0". <br>
+            </p>
+
+            <h3>Eventi</h3>
+            <p>
+            Gli <strong>Eventi</strong> permettono di definire operazioni in risposta a cose che succedono durante l'esecuzione del programma. <br>
+            Ad esempio permettono di definire un comportamento in risposta al fatto che qualcuno abbia premuto il pulsante "salita/discesa" a un certo piano ecc. <br>
+            </p>
+
+            <p>
+            <strong>Quando la coda di "ascensore" è vuota</strong><br>
+
+            <img src="images/emptyQueue.png" /> <br>
+            Il codice interno a questo evento viene eseguito quando un ascensore termina le operazioni nella sua coda (ed è quindi fermo). <br>
+            </p>
+
+            <p>
+            <strong>Quando scelgono un piano in "ascensore"</strong><br>
+
+            <img src="images/floorChosen.png" /> <br>
+            Il codice interno a questo evento viene eseguito quando una persona sceglie un piano di destinazione in un particolare ascensore. <br>
+            Ricorda di usare la dicitura "questo piano" per riferirti al particolare piano selezionato. <br>
+            </p>
+
+            <p>
+            <strong>Quando premono "direzione" al piano "piano"</strong><br>
+
+            <img src="images/floorCall.png" /> <br>
+            Il codice interno a questo evento viene eseguito quando una persona chiama l'ascensore a un certo piano.<br>
+            Si può differenziare il comportamento in base alla direzione scelta (salire/scendere) oppure no (entrambe). <br>
+            </p>
+
+            <p>
+            <strong>Quando "ascensore" sta per passare per "piano"</strong><br>
+
+            <img src="images/passingThrough.png" /> <br>
+            Il codice interno a questo evento viene eseguito quando l'ascensore sta per passare per un piano senza fermarcisi.<br>
+            Ricorda di usare la dicitura "questo piano" per riferirti al particolare piano. <br>
+            </p>
+
+            <p>
+            <strong>Quando "ascensore" arriva a un piano</strong><br>
+
+            <img src="images/stopAtFloor.png" /> <br>
+            Il codice interno a questo evento viene eseguito quando l'ascensore sta per arrivare a un piano dove si fermerà per far uscire/entrare persone.<br>
+            Ricorda di usare la dicitura "questo piano" per riferirti al particolare piano. <br>
+            </p>
+
+            <h3>Azioni</h3>
+            Le <strong>Azioni</strong> permettono di dare comandi all'ascensore. <br>
+            Ad esempio permettono di dire all'ascensore di aggiungere un certo piano alla sua coda di operazioni o di andarci direttamente. <br>
+            </p>
+
+            <p>
+            <strong>Aggiungi "piano" alla coda di "ascensore"</strong><br>
+            <img src="images/addToQueue.png" /> <br>
+            Aggiunge il piano al fondo della coda dell'ascensore. <br>
+            Questo vuol dire che l'ascensore ci andrà <em>dopo</em> aver completato le operazioni che ha in coda al momento.
+            </p>
+
+            <p>
+            <strong>Manda "ascensore" al piano "piano" subito</strong><br>
+            <img src="images/goImmediately.png" /> <br>
+            Manda subito l'ascensore al piano indicato. <br>
+            Dopo essere arrivato, l'ascensore riprenderà ad eseguire le operazioni che ha in coda. <br>
+            </p>
+
+            <p>
+            <strong>Ordina la coda di "ascensore" in ordine "crescente/decrescente"</strong><br>
+            <img src="images/sortQueue.png" /> <br>
+            Ordina i piani da visitare in ordine crescente (P0, P1, P2, ...) o decrescente (..., P2, P1, P0). <br>
+
+            </p>
+
+            <p>
+            <strong>Rimuovi "piano" dalla coda di "ascensore"</strong><br>
+            <img src="images/removeFromQueue.png" /> <br>
+            Rimuove un certo piano dalla coda di operazioni future di un ascensore. <br>
+
+            </p>
+
+            <h3>Controlli</h3>
+            <p>
+            I <strong>Controlli</strong> permettono di verificare determinate situazioni per prendere decisioni. <br>
+            Ad esempio permettono di verificare quanto peso sta trasportando un certo ascensore in un certo momento e di agire in base a una condizione decisa da chi programma. <br>
+            </p>
+
+            <p>
+            <strong>Se "ascensore" sta "salendo/scendendo"</strong><br>
+            <img src="images/checkDirection.png" /> <br>
+            Esegui operazioni solo se l'ascensore sta salendo o scendendo. <br>
+
+            </p>
+
+            <p>
+            <strong>Se il piano "piano" "è/non è" in coda a "ascensore"</strong><br>
+            <img src="images/checkInQueue.png" /> <br>
+            Esegui operazioni solo se il piano è o non è in coda all'ascensore. <br>
+
+            </p>
+
+            <p>
+            <strong>Se il carico di "ascensore" è "maggiore/minore/..." di "percentuale"</strong><br>
+            <img src="images/checkLoad.png" /> <br>
+            Esegui operazioni solo se il peso delle persone presenti nell'ascensore ha determinate caratteristiche. <br>
+            <strong>Nota:</strong> ogni persona pesa in modo diverso e casuale e il carico non è automaticamente determinato dal numero di persone. <br>
+            </p>
+
+            <p>
+            <strong>Se l'ascensore "ascensore" è su un piano "uguale/maggiore/minore" di "piano"</strong><br>
+            <img src="images/checkPosition.png" /> <br>
+            Esegui operazioni solo se l'ascensore si trova in una certa posizione rispetto ad un certo piano. <br>
+
+            </p>
+
+            <h3>Selezione</h3>
+            <p>
+            Le <strong>Selezioni</strong> permettono di selezionare particolari oggetti (piani o ascensori). <br>
+            </p>
+
+            <p>
+            <strong>Scegli l'ascensore "condizione" che sta "azione"</strong><br>
+            <img src="images/chooseElevator.png" /> <br>
+            Seleziona l'ascensore in base a una condizione: il carico dipende da quante persone sono presenti all'interno dell'ascensore, la capienza dipende dalle dimensioni dell'ascensore (un ascensore più capiente può portare più peso). C'è anche la possibilità di scegliere un ascensore completamente a caso.<br>
+            Inoltre è possibile specificare che l'ascensore deve stare salendo o scendendo (oppure entrambe). <br>
+            <strong>Importante:</strong> ricordati di usare la dicitura "questo ascensore" all'interno del blocco per usare effettivamente l'ascensore selezionato. <br>
+
+            </p>
         </div>
         <div class="footer">
-            <h4>Made by Magnus Wolffelt and contributors</h4>
-            <h4><a href="https://github.com/magwo/elevatorsaga">Source code</a> on GitHub</h4>
+            <strong>Creato da Magnus Wolffelt e collaboratrici/collaboratori</strong><br>
+            <strong>Versione a blocchi implementata da Gabriele Pozzan, per domande, suggerimenti o curiosità scrivere a gabriele.pozzan[at]phd.unipd.it</strong>
         </div>
     </div>
-
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-56810935-1', 'auto');
-        ga('send', 'pageview');
-    </script>
 </body>
 </html>

@@ -116,11 +116,29 @@ var createParamsUrl = function(current, overrides) {
     }).join(",");
 };
 
+var injectBlockly = function() {
+    var toolbox = { kind: 'categoryToolbox', contents: TOOLBOX_CONTENTS }
+    var workspace = Blockly.inject('blocklyContainer', {
+        toolbox,
+        // media: '/libs/blockly-9.2.1/package/media/',
+        trashcan: true,
+        move: {
+            scrollbars: {
+            horizontal: false,
+            vertical: true
+            },
+            drag: true,
+            wheel: true
+        }
+    })
+    return workspace
+}
 
 
 $(function() {
     var tsKey = "elevatorTimeScale";
-    var editor = createEditor();
+    // var editor = createEditor();
+    var workspace = injectBlockly();
 
     var params = {};
 
@@ -142,7 +160,7 @@ $(function() {
     app.worldController = createWorldController(1.0 / 60.0);
     app.worldController.on("usercode_error", function(e) {
         console.log("World raised code error", e);
-        editor.trigger("usercode_error", e);
+        // editor.trigger("usercode_error", e);
     });
 
     console.log(app.worldController);
@@ -184,18 +202,30 @@ $(function() {
                 app.world.challengeEnded = true;
                 app.worldController.setPaused(true);
                 if(challengeStatus) {
-                    presentFeedback($feedback, feedbackTempl, app.world, "Success!", "Challenge completed", createParamsUrl(params, { challenge: (challengeIndex + 2)}));
+                    presentFeedback($feedback, feedbackTempl, app.world, "Successo!", "Sfida superata", createParamsUrl(params, { challenge: (challengeIndex + 2)}));
                 } else {
-                    presentFeedback($feedback, feedbackTempl, app.world, "Challenge failed", "Maybe your program needs an improvement?", "");
+                    presentFeedback($feedback, feedbackTempl, app.world, "Sfida non superata!", "Forse bisogna ottimizzare il programma?", "");
                 }
             }
         });
 
-        var codeObj = editor.getCodeObj();
+        resetLogLines()
+
+        // var codeObj = editor.getCodeObj();
+        var code = ''
+        code += 'function init (elevators, floors) {\n'
+        code += DEFAULT_CODE
+        code += Blockly.JavaScript.workspaceToCode(workspace)
+        code += '\n};init;\n'
+
+        var initFn = eval(code)
+
+        var codeObj = { update: function (dt, elevators, floors) {}, init: initFn };
         console.log("Starting...");
         app.worldController.start(app.world, codeObj, window.requestAnimationFrame, autoStart);
     };
 
+    /*
     editor.on("apply_code", function() {
         app.startChallenge(app.currentChallengeIndex, true);
     });
@@ -219,6 +249,7 @@ $(function() {
         // });
     });
     editor.trigger("change");
+    */
 
     riot.route(function(path) {
         params = _.reduce(path.split(","), function(result, p) {
@@ -241,7 +272,7 @@ $(function() {
             } else if(key === "timescale") {
                 timeScale = parseFloat(val);
             } else if(key === "devtest") {
-                editor.setDevTestCode();
+                // editor.setDevTestCode();
             } else if(key === "fullscreen") {
                 makeDemoFullscreen();
             }

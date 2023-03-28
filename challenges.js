@@ -1,7 +1,7 @@
 
 var requireUserCountWithinTime = function(userCount, timeLimit) {
     return {
-        description: "Transport <span class='emphasis-color'>" + userCount + "</span> people in <span class='emphasis-color'>" + timeLimit.toFixed(0) + "</span> seconds or less",
+        description: "Trasporta <span class='emphasis-color'>" + userCount + "</span> persone in <span class='emphasis-color'>" + timeLimit.toFixed(0) + "</span> secondi or meno",
         evaluate: function(world) {
             if(world.elapsedTime >= timeLimit || world.transportedCounter >= userCount) {
                 return world.elapsedTime <= timeLimit && world.transportedCounter >= userCount;
@@ -14,7 +14,7 @@ var requireUserCountWithinTime = function(userCount, timeLimit) {
 
 var requireUserCountWithMaxWaitTime = function(userCount, maxWaitTime) {
     return {
-        description: "Transport <span class='emphasis-color'>" + userCount + "</span> people and let no one wait more than <span class='emphasis-color'>" + maxWaitTime.toFixed(1) + "</span> seconds",
+        description: "Trasporta <span class='emphasis-color'>" + userCount + "</span> persone e non lasciare che qualcuno aspetti più di <span class='emphasis-color'>" + maxWaitTime.toFixed(1) + "</span> secondi",
         evaluate: function(world) {
             if(world.maxWaitTime >= maxWaitTime || world.transportedCounter >= userCount) {
                 return world.maxWaitTime <= maxWaitTime && world.transportedCounter >= userCount;
@@ -27,7 +27,7 @@ var requireUserCountWithMaxWaitTime = function(userCount, maxWaitTime) {
 
 var requireUserCountWithinTimeWithMaxWaitTime = function(userCount, timeLimit, maxWaitTime) {
     return {
-       description: "Transport <span class='emphasis-color'>" + userCount + "</span> people in <span class='emphasis-color'>" + timeLimit.toFixed(0) + "</span> seconds or less and let no one wait more than <span class='emphasis-color'>" + maxWaitTime.toFixed(1) + "</span> seconds",
+       description: "Trasporta <span class='emphasis-color'>" + userCount + "</span> persone in <span class='emphasis-color'>" + timeLimit.toFixed(0) + "</span> secondi o meno e non lasciare che qualcuno aspetti più di <span class='emphasis-color'>" + maxWaitTime.toFixed(1) + "</span> secondi",
        evaluate: function(world) {
             if(world.elapsedTime >= timeLimit || world.maxWaitTime >= maxWaitTime || world.transportedCounter >= userCount) {
                 return world.elapsedTime <= timeLimit && world.maxWaitTime <= maxWaitTime && world.transportedCounter >= userCount;
@@ -40,7 +40,7 @@ var requireUserCountWithinTimeWithMaxWaitTime = function(userCount, timeLimit, m
 
 var requireUserCountWithinMoves = function(userCount, moveLimit) {
     return {
-        description: "Transport <span class='emphasis-color'>" + userCount + "</span> people using <span class='emphasis-color'>" + moveLimit + "</span> elevator moves or less",
+        description: "Trasporta <span class='emphasis-color'>" + userCount + "</span> persone usando <span class='emphasis-color'>" + moveLimit + "</span> o meno movimenti di ascensori",
         evaluate: function(world) {
             if(world.moveCount >= moveLimit || world.transportedCounter >= userCount) {
                 return world.moveCount <= moveLimit && world.transportedCounter >= userCount;
@@ -53,7 +53,7 @@ var requireUserCountWithinMoves = function(userCount, moveLimit) {
 
 var requireDemo = function() {
     return {
-        description: "Perpetual demo",
+        description: "Demo",
         evaluate: function() { return null; }
     };
 };

@@ -225,6 +225,7 @@ var createWorldController = function(dtMax) {
     var controller = riot.observable({});
     controller.timeScale = 1.0;
     controller.isPaused = true;
+    // TODO qui sta l'esecuzione dei programmi degli utenti
     controller.start = function(world, codeObj, animationFrameRequester, autoStart) {
         controller.isPaused = true;
         var lastT = null;
@@ -236,6 +237,7 @@ var createWorldController = function(dtMax) {
                     firstUpdate = false;
                     // This logic prevents infite loops in usercode from breaking the page permanently - don't evaluate user code until game is unpaused.
                     try {
+                        // TODO qui
                         codeObj.init(world.elevatorInterfaces, world.floors);
                         world.init();
                     } catch(e) { controller.handleUserCodeError(e); }
@@ -245,6 +247,7 @@ var createWorldController = function(dtMax) {
                 var scaledDt = dt * 0.001 * controller.timeScale;
                 scaledDt = Math.min(scaledDt, dtMax * 3 * controller.timeScale); // Limit to prevent unhealthy substepping
                 try {
+                    // TODO qui
                     codeObj.update(scaledDt, world.elevatorInterfaces, world.floors);
                 } catch(e) { controller.handleUserCodeError(e); }
                 while(scaledDt > 0.0 && !world.challengeEnded) {

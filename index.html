@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Elevator Saga - the elevator programming game</title>
+    <title>Elevator Saga Blockly Edition</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="font-awesome-4.1-1.0/css/font-awesome.min.css" type="text/css" media="all">
     <link href='//fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
@@ -18,6 +18,12 @@
     <script type="text/javascript" src="libs/codemirror/mode/javascript/javascript.js"></script>
 
     <script type="text/javascript" src="libs/unobservable.js"></script>
+
+    <script type="text/javascript" src="libs/blockly-9.2.1/package/blockly_compressed.js"></script>
+    <script type="text/javascript" src="libs/blockly-9.2.1/package/javascript_compressed.js"></script>
+    <script type="text/javascript" src="libs/blockly-9.2.1/package/msg/it.js"></script>
+
+    <script type="text/javascript" src="blocklyConfigure.js"></script>
 
     <script type="text/javascript" src="base.js"></script>
     <script type="text/javascript" src="movable.js"></script>
@@ -63,15 +69,18 @@
         <div class="feedback">
             <h2 class="emphasis-color">{title}</h2>
             <p class="emphasis-color">{message}</p>
-            <a href="{url}" class="emphasis-color">Next challenge <i class="fa fa-caret-right blink" style="text-decoration: blink"></i></a>
+            <a href="{url}" class="emphasis-color">Prossima sfida <i class="fa fa-caret-right blink" style="text-decoration: blink"></i></a>
         </div>
     </script>
 
     <script type="text/template" id="challenge-template">
         <div class="left">
-            <h3>Challenge #{num}: {challenge.condition.description}</h3>
+            <h3>Sfida #{num}: {challenge.condition.description}</h3>
         </div>
+
+        <button id="button_apply" style="float: right">Applica codice</button>
         <button class="right startstop unselectable" style="width: 110px">{startButtonText}</button>
+
         <h3 class="right">
             <i class="fa fa-minus-square timescale_decrease unselectable"></i>
             <span class="emphasis-color" style="display: inline-block; width: 22px; text-align: center">{timeScale}</span>
@@ -138,10 +147,9 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1 class="left">Elevator Saga <em class="emphasis-color">The elevator programming game</em></h1>
-            <a class="right" href="https://github.com/magwo/elevatorsaga/wiki/">Wiki & Solutions</a>
-            <a class="right" href="documentation.html#docs">Documentation</a>
-            <a class="right" href="documentation.html">Help</a>
+            <h1 class="left">Elevator Saga <em class="emphasis-color">Il gioco di programmazione di ascensori</em></h1>
+            <!-- <a class="right" href="https://github.com/magwo/elevatorsaga/wiki/">Wiki & Solutions</a> -->
+            <a class="right" href="documentation.html">Manuale</a>
         </div>
 
         <noscript>
@@ -156,46 +164,90 @@
             <div class="innerworld">
             </div>
             <div class="statscontainer">
-                <div style="top: 20px"><span class="key">Transported</span><span class="value transportedcounter"></span></div>
-                <div style="top: 40px"><span class="key">Elapsed time</span><span class="value elapsedtime"></span></div>
-                <div style="top: 60px"><span class="key">Transported/s</span><span class="value transportedpersec"></span></div>
-                <div style="top: 80px"><span class="key">Avg waiting time</span><span class="value avgwaittime"></span></div>
-                <div style="top: 100px"><span class="key">Max waiting time</span><span class="value maxwaittime"></span></div>
-                <div style="top: 120px"><span class="key" title="Number of floors that have been travelled by elevators">Moves</span><span class="value movecount"></span></div>
+                <div style="top: 20px"><span class="key">Trasportate</span><span class="value transportedcounter"></span></div>
+                <div style="top: 40px"><span class="key">Tempo trascorso</span><span class="value elapsedtime"></span></div>
+                <div style="top: 60px"><span class="key">Trasportate/s</span><span class="value transportedpersec"></span></div>
+                <div style="top: 80px"><span class="key">Attesa media</span><span class="value avgwaittime"></span></div>
+                <div style="top: 100px"><span class="key">Attesa massima</span><span class="value maxwaittime"></span></div>
+                <div style="top: 120px"><span class="key" title="Number of floors that have been travelled by elevators">Mosse</span><span class="value movecount"></span></div>
             </div>
         </div>
 
         <div class="codestatus"></div>
-        <div class="code">
-            <textarea name="Code" id="code"></textarea>
-        </div>
-        <button id="button_reset" style="float: left">Reset</button>
-        <button id="button_resetundo" style="float: left">Undo reset</button>
-        <button id="button_apply" style="float: right">Apply</button>
-        <button id="button_save" style="float: right">Save</button>
+
+        <div id="blocklyContainer"></div>
+
+
+
+        <!-- <button id="button_reset" style="float: left">Reset</button> -->
+        <!-- <button id="button_resetundo" style="float: left">Undo reset</button> -->
+        <!-- <button id="button_save" style="float: right">Save</button> -->
         <span id="save_message" style="float: right"></span>
         <span id="fitness_message" style="float: right"></span>
+
+        <div id="logDiv" style="height: 300px; overflow: scroll; background-color: #333333;"></div>
+
         <div style="clear:both;"></div>
 
-        <div style="margin-top: 20px">
-            <h3>Confused? Open the <a href="documentation.html">Help and API documentation</a> page</h3>
+        <div style="margin-top: 10px">
+            <h3>Ricordati di controllare il <a href="documentation.html">manuale</a>!</h3>
         </div>
+
         <div class="footer">
-            <h4>Made by Magnus Wolffelt and contributors</h4>
-            <h4>Version <span class="emphasis-color">1.6.5</span></h4>
-            <h4><a href="https://github.com/magwo/elevatorsaga">Source code</a> on GitHub</h4>
-            <h4><a href="test/index.html">Run tests</a></h4>
+            <h4>Creato da Magnus Wolffelt e collaboratrici/collaboratori</h4>
+            <h4>Versione a blocchi implementata da Gabriele Pozzan, per domande, suggerimenti o curiosità scrivere a gabriele.pozzan[at]phd.unipd.it</h4>
+            <h4><a href="https://play.elevatorsaga.com/">Sito originale (in inglese)</a></h4>
+            <h4>Basato sulla versione <span class="emphasis-color">1.6.5</span></h4>
+            <!-- <h4><a href="https://github.com/magwo/elevatorsaga">Source code</a> on GitHub</h4> -->
+            <!-- <h4><a href="test/index.html">Run tests</a></h4> -->
         </div>
+
+        <script type="text/javascript">
+            function toPercent (load) {
+                var str = (load * 100).toFixed(2) + '%'
+                return str
+            }
+
+            function printQueue (queue) {
+                var str = ''
+                for (var i = 0; i < queue.length; i++) {
+                    str += 'P' + queue[i]
+                    if (i < queue.length - 1) str += ', '
+                }
+                return str
+            }
+
+            function formatDateHoursToMs (t) {
+                let time = t
+                if (!(t instanceof Date)) time = new Date(t)
+
+                let baseDate = ''
+                const hours = time.getHours().toString()
+                baseDate += (hours.length > 1) ? hours : '0' + hours
+                baseDate += ':'
+                const minutes = time.getMinutes().toString()
+                baseDate += (minutes.length > 1) ? minutes : '0' + minutes
+                baseDate += ':'
+                const seconds = time.getSeconds().toString()
+                baseDate += (seconds.length > 1) ? seconds : '0' + seconds
+                baseDate += '.'
+                const milliseconds = time.getMilliseconds().toString()
+                baseDate += (milliseconds.length > 1) ? milliseconds : '0' + milliseconds
+
+                return baseDate
+                }
+
+            function resetLogLines () {
+                const logDiv = document.getElementById('logDiv')
+                logDiv.innerHTML = ''
+            }
+
+            function addLogLine (logLine) {
+                const logDiv = document.getElementById('logDiv')
+                logDiv.innerHTML += '<br/><small>(' + formatDateHoursToMs(new Date()) + ')</small> ' + logLine
+                logDiv.scrollTop = logDiv.scrollHeight
+            }
+        </script>
     </div>
-
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-56810935-1', 'auto');
-        ga('send', 'pageview');
-    </script>
 </body>
 </html>

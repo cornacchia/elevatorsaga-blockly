@@ -43,13 +43,18 @@ function presentChallenge($parent, challenge, app, world, worldController, chall
         challenge: challenge,
         num: challengeNum,
         timeScale: worldController.timeScale.toFixed(0) + "x",
-        startButtonText: world.challengeEnded ? "<i class='fa fa-repeat'></i> Restart" : (worldController.isPaused ? "Start" : "Pause")
+        startButtonText: world.challengeEnded ? "<i class='fa fa-repeat'></i> Ricomincia" : (worldController.isPaused ? "Avvia" : "Pausa")
     }));
     $parent.html($challenge);
 
     $parent.find(".startstop").on("click", function() {
         app.startStopOrRestart();
     });
+
+    $parent.find("#button_apply").on("click", function() {
+        app.startChallenge(app.currentChallengeIndex, true);
+    });
+
     $parent.find(".timescale_increase").on("click", function(e) {
         e.preventDefault();
         if(worldController.timeScale < 40) {
