@@ -14,11 +14,12 @@
     <script>hljs.initHighlightingOnLoad();</script>
 </head>
 <body>
-    <div class="container" style="width: 960px">
+    <div class="container" style="width: 90%">
         <div class="header">
             <h1>Elevator Saga <em class="emphasis-color">Manuale</em></h1>
         </div>
 
+        <a class="left" href="index.html">Torna al gioco</a><br>
         <div class="help">
             <h2>Introduzione</h2>
             <p>
@@ -26,54 +27,58 @@
                 Il tuo compito è scrivere un programma che controlli il comportamento di uno o più ascensori, in altre parole dovrai programmare l'intelligenza artificiale degli ascensori.
             </p>
             <p>
-                L'obiettivo è trasportare persone in maniera efficiente.<br>
+                L'obiettivo è trasportare persone in maniera <strong>efficiente</strong>.<br>
                 Questo vuol dire:<br>
-                1&#41; Trasportare più persone possibili nel <em>minor tempo</em> possibile.<br>
+                1&#41; Trasportare <em>più persone</em> possibili nel <em>minor tempo</em> possibile.<br>
                 2&#41; Ridurre al minimo il <em>tempo di attesa</em> delle persone che vogliono usare l'ascensore.<br>
                 3&#41; Ridurre al minimo il <em>numero di mosse (spostamenti)</em> dell'ascensore.<br>
             </p>
 
             <h2>Come giocare</h2>
+            <img src="images/elevator_saga_ui.png" /> <br>
             <p>
-                Componi il tuo programma con i blocchi di codice che troverai cliccando sui menù <em>Cicli</em>, <em>Eventi</em>, ecc. <br>
-                Per eseguire il tuo codice (e verificare che superi la sfida) clicca sul pulsante <strong>Applica codice</strong>. <br>
+                Componi il tuo programma con i blocchi di codice che troverai cliccando sui menù <em>Cicli</em>, <em>Eventi</em>, ecc. a sinistra della pagina (A), sotto al "palazzo". <br>
+                Per eseguire il tuo codice (e verificare che superi la sfida) clicca sul pulsante <strong>Applica codice</strong> (B). <br>
                 Nota: il pulsante <strong>Avvia/Pausa</strong> serve a mettere in pausa/riavviare l'esecuzione ma prima di cliccarlo dovrai aver <strong>applicato il tuo codice</strong> come descritto nella frase precedente! <br>
-                Puoi velocizzare o rallentare la velocità di esecuzione del programma cliccando i bottoni <i class="fa fa-plus emphasis-color"></i> e <i class="fa fa-minus emphasis-color"></i>.
+                Puoi velocizzare o rallentare la velocità di esecuzione del programma cliccando i bottoni <i class="fa fa-plus emphasis-color"></i> e <i class="fa fa-minus emphasis-color"></i> (C), consiglio però di aspettare di aver preso un po' di confidenza con il gioco prima di velocizzare l'esecuzione.
 
                 <br><br>
-                Ogni sfida consiste di un palazzo con più piani, chiamati <strong>P0, P1, P2, ...</strong> e uno o più ascensori chiamati <strong>A0, A1, A2, ...</strong> <br>
+                Ogni sfida consiste di un palazzo con più piani, chiamati <strong>P0, P1, P2, ...</strong> (D) e uno o più ascensori chiamati <strong>A0, A1, A2, ...</strong> (E) <br>
                 Ogni ascensore avrà una <strong>coda di operazioni</strong> da eseguire, ovvero una lista di piani che visiterà in ordine, dal primo all'ultimo. <br>
-            </p>
+
+                <br><br>
+                <strong>Importante:</strong> nella parte bassa dello schermo, sotto alla zona di lavoro, troverai un <em>log degli avvenimenti</em>, ovvero una lista delle cose che accadono durante l'esecuzione, questa sarà molto utile per capire come gli ascensori applicano il tuo programma (soprattutto qualora lo facessero in modo inaspettato). <br>           </p>
 
 
             <h2>Come usare i blocchi di codice</h2>
             <p>
-                Il tuo programma consiste di ogni blocco di codice che avrai trascinato sulla parte bianca dello schermo (a destra del menù da cui puoi selezionare i blocchi). <br>
+                Il tuo programma consiste di ogni blocco di codice che avrai trascinato sulla parte bianca dello schermo (F), detta <em>zona di lavoro</em>. <br>
                 In generale: <br>
                 1) Quando i blocchi vengono collegati <em>uno dopo l'altro</em> verranno eseguiti in sequenza (dall'alto verso il basso) <br>
                 2) Quando i blocchi vengono collegati <em>uno dentro all'altro</em> allora verranno eseguiti da quello più esterno a quello più interno. <br>
+                3) Se i blocchi non vengono collegati allora vengono eseguiti in ordine imprevedibile (questo può essere o non essere un problema, in base al tuo programma). <br>
 
                 <br>
                 Un blocco che può contenere altri blocchi al suo interno crea un particolare <strong>contesto</strong> per i blocchi che sono all'interno. <br>
                 <img src="images/manual_nested_example.png" /> <br>
-                Ad esempio in questa immagine il blocco <strong>Per ogni piano</strong> farà sì che le istruzioni contenute al suo interno vengano eseguite per ogni piano presente nella sfida corrente. <br>
+                Ad esempio in questa immagine il blocco <strong>Per ogni piano</strong> farà sì che le istruzioni contenute al suo interno vengano eseguite per ogni piano del palazzo della sfida corrente. <br>
                 In questo caso la dicitura <strong>questo piano</strong> al suo interno indica <em>ogni piano</em>, in altre parole, le istruzioni all'interno del blocco "per ogni piano" verranno eseguite una volta per ogni piano.<br>
+                Questo codice, quindi, fa sì che, se qualcuno preme il tasto per chiamare l'ascensore per "salire" in <em>qualsiasi piano</em> del palazzo, <em>questo piano</em> viene aggiunto alla coda di operazioni dell'ascensore "A0". <br>
                 Se invece di "questo piano" venisse selezionata, ad esempio, l'opzione "P0", allora le istruzioni all'interno del blocco "per ogni piano" verrebbero eseguite sempre e solo per il piano "P0". <br>
 
                 <img src="images/manual_nested_example_2.png" /> <br>
-                In questa seconda immagine invece il blocco <strong>Quando A0 sta per passare per un piano</strong> farà sì che le istruzioni al suo interno vengano eseguite ogni volta che l'ascensore "A0" starà per passare per un piano.<br>
-                In questo caso la dicitura <strong>questo piano</strong> al suo interno indica, di volta in volta, il particolare piano che l'ascensore sta per attraversare.<br>
+                In questa seconda immagine invece il blocco <strong>Quando A0 sta per passare per un piano</strong> farà sì che le istruzioni al suo interno vengano eseguite ogni volta che l'ascensore "A0" starà per passare per un qualsiasi piano.<br>
+                La dicitura <strong>questo piano</strong> al suo interno indica, di volta in volta, il particolare piano che l'ascensore sta per attraversare.<br>
+                Questo codice, quindi, fa sì che, ogni volta che l'ascensore "A0" sta per passare per un piano, si fermi subito a quel piano (algoritmo non molto efficiente!). <br>
             </p>
 
             <h2 id="docs">Funzionalità dei blocchi</h2>
 
-            <h3>Cicli</h3>
+            <h3>> Cicli</h3>
             <p>
             I <strong>Cicli</strong> permettono di definire operazioni che si applicano <em>ad ogni elemento</em> incluso nel ciclo. Ad esempio "ogni piano del palazzo", oppure "ogni ascensore". <br>
             <strong>Importante</strong>: ricordati di usare la dicitura <em>questo piano</em>, <em>questo ascensore</em> per applicare correttamente le operazioni all'interno dei cicli.
             </p>
-            <br>
-            <br>
 
             <p>
             <strong>Per ogni ascensore</strong><br>
@@ -89,7 +94,7 @@
             L'esempio di destra aggiunge tutti i piani alla coda dell'ascensore "A0". <br>
             </p>
 
-            <h3>Eventi</h3>
+            <h3>> Eventi</h3>
             <p>
             Gli <strong>Eventi</strong> permettono di definire operazioni in risposta a cose che succedono durante l'esecuzione del programma. <br>
             Ad esempio permettono di definire un comportamento in risposta al fatto che qualcuno abbia premuto il pulsante "salita/discesa" a un certo piano ecc. <br>
@@ -134,7 +139,8 @@
             Ricorda di usare la dicitura "questo piano" per riferirti al particolare piano. <br>
             </p>
 
-            <h3>Azioni</h3>
+            <h3>> Azioni</h3>
+            <p>
             Le <strong>Azioni</strong> permettono di dare comandi all'ascensore. <br>
             Ad esempio permettono di dire all'ascensore di aggiungere un certo piano alla sua coda di operazioni o di andarci direttamente. <br>
             </p>
@@ -167,7 +173,7 @@
 
             </p>
 
-            <h3>Controlli</h3>
+            <h3>> Controlli</h3>
             <p>
             I <strong>Controlli</strong> permettono di verificare determinate situazioni per prendere decisioni. <br>
             Ad esempio permettono di verificare quanto peso sta trasportando un certo ascensore in un certo momento e di agire in base a una condizione decisa da chi programma. <br>
@@ -201,7 +207,7 @@
 
             </p>
 
-            <h3>Selezione</h3>
+            <h3>> Selezione</h3>
             <p>
             Le <strong>Selezioni</strong> permettono di selezionare particolari oggetti (piani o ascensori). <br>
             </p>
@@ -216,8 +222,10 @@
             </p>
         </div>
         <div class="footer">
-            <strong>Creato da Magnus Wolffelt e collaboratrici/collaboratori</strong><br>
-            <strong>Versione a blocchi implementata da Gabriele Pozzan, per domande, suggerimenti o curiosità scrivere a gabriele.pozzan@studenti.unipd.it</strong>
+            <p>
+                <strong>Creato da Magnus Wolffelt e collaboratrici/collaboratori</strong><br>
+                <strong>Versione a blocchi implementata da Gabriele Pozzan, per domande, suggerimenti o curiosità scrivere a gabriele.pozzan@studenti.unipd.it</strong>
+            </p>
         </div>
     </div>
 </body>
