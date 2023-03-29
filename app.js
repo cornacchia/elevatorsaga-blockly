@@ -120,7 +120,7 @@ var injectBlockly = function() {
     var toolbox = { kind: 'categoryToolbox', contents: TOOLBOX_CONTENTS }
     var workspace = Blockly.inject('blocklyContainer', {
         toolbox,
-        // media: '/libs/blockly-9.2.1/package/media/',
+        media: 'libs/blockly-9.2.1/package/media/',
         trashcan: true,
         move: {
             scrollbars: {
