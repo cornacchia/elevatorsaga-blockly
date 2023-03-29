@@ -163,7 +163,7 @@ $(function() {
         // editor.trigger("usercode_error", e);
     });
 
-    console.log(app.worldController);
+    // console.log(app.worldController);
     app.worldCreator = createWorldCreator();
     app.world = undefined;
 
@@ -177,7 +177,7 @@ $(function() {
         }
     };
 
-    app.startChallenge = function(challengeIndex, autoStart) {
+    app.startChallenge = function(challengeIndex, autoStart, firstTime) {
         if(typeof app.world !== "undefined") {
             app.world.unWind();
             // TODO: Investigate if memory leaks happen here
@@ -210,6 +210,15 @@ $(function() {
         });
 
         resetLogLines()
+
+        if (firstTime && challenges[challengeIndex].defaultCode) {
+            workspace.clear()
+            const dom = Blockly.Xml.textToDom(challenges[challengeIndex].defaultCode)
+            Blockly.Xml.domToWorkspace(dom, workspace)
+        }
+        // const xmlDom = Blockly.Xml.workspaceToDom(workspace)
+        // const xmlText = Blockly.Xml.domToPrettyText(xmlDom)
+        // console.log(xmlText)
 
         // var codeObj = editor.getCodeObj();
         var code = ''
@@ -278,6 +287,6 @@ $(function() {
             }
         });
         app.worldController.setTimeScale(timeScale);
-        app.startChallenge(requestedChallenge, autoStart);
+        app.startChallenge(requestedChallenge, autoStart, true);
     });
 });
