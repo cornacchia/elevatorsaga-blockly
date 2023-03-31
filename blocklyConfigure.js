@@ -307,13 +307,9 @@ var blocks = [
       },
     ],
     extensions: ['elevator_menu_extension'],
-    message1: 'Fai %1',
+    message1: '%1',
     args1: [
       {"type": "input_statement", "name": "DO"}
-    ],
-    message2: 'Altrimenti %1',
-    args2: [
-      {"type": "input_statement", "name": "ELSE"}
     ]
   },
   {
@@ -632,7 +628,6 @@ function ifElevatorLoad (block) {
   var comparison = block.getFieldValue('COMPARISON')
   var load = block.getFieldValue('LOAD')
   var branch0 = Blockly.JavaScript.statementToCode(block, 'DO')
-  var branch1 = Blockly.JavaScript.statementToCode(block, 'ELSE')
 
   var code = '// IF ELEVATOR LOAD\n'
 
@@ -643,8 +638,6 @@ function ifElevatorLoad (block) {
   let comp = comp1 + ' ' + comparison + ' ' + comp2
   code += 'if(' + comp + ') {\n'
   code += branch0
-  code += '} else {\n'
-  code += branch1
   code += '};\n'
   return code
 }
