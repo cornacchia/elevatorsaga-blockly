@@ -431,10 +431,15 @@ function whenIdle (block) {
 
   var code = '// WHEN IDLE\n'
   if (elevator !== 'this') code += 'currentElevator = ' + elevator + ';\n'
-  code += 'elevators[currentElevator].on("idle", function(){\n'
+
+  code += 'var emptyQueueFunc = function (currentElevator) {\n'
+  code += 'return function () {\n'
   code += 'addLogLine("A" + currentElevator + " -> coda vuota.");\n'
   code += branch0
-  code += '});\n'
+  code += '};\n'
+  code += '}(currentElevator);\n'
+
+  code += 'elevators[currentElevator].on("idle", emptyQueueFunc);\n'
   return code
 }
 
@@ -581,9 +586,7 @@ function passingThrough (block) {
   code += branch0
   code += '}\n'
   code += '}(currentElevator);\n'
-  code += 'elevators[currentElevator].on("passing_floor", function (floorNum) {\n'
-  code += 'return passingThroughFunc(floorNum);\n'
-  code += '});\n'
+  code += 'elevators[currentElevator].on("passing_floor", passingThroughFunc);\n'
 
   return code
 }
@@ -601,9 +604,7 @@ function stopAtFloor (block) {
   code += branch0
   code += '}\n'
   code += '}(currentElevator);\n'
-  code += 'elevators[currentElevator].on("stopped_at_floor", function (floorNum) {\n'
-  code += 'return stopAtFloorFunc(floorNum);\n'
-  code += '});\n'
+  code += 'elevators[currentElevator].on("stopped_at_floor", stopAtFloorFunc);\n'
 
   return code
 }
@@ -843,8 +844,6 @@ var DEFAULT_CODE = `
 
  for (var i = 0; i < elevators.length; i++) {
 
-  // elevators[i].on("passing_floor", function () {});
-
   var stoppedAtFloorFunc = function (currentElevator) {
    return function (currentFloor) {
     addLogLine("A" + currentElevator + " -> arrivato al piano P" + currentFloor + "; carico: " + toPercent(elevators[currentElevator].loadFactor()));
@@ -853,5 +852,4 @@ var DEFAULT_CODE = `
 
   elevators[i].on("stopped_at_floor", stoppedAtFloorFunc);
  }
-
 `

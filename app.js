@@ -230,7 +230,7 @@ $(function() {
         var initFn = eval(code)
 
         var codeObj = { update: function (dt, elevators, floors) {}, init: initFn };
-        console.log("Starting...");
+        // console.log("Starting...");
         app.worldController.start(app.world, codeObj, window.requestAnimationFrame, autoStart);
     };
 

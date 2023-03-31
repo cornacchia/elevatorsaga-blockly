@@ -1,0 +1,239 @@
+(10:06:54.448) P2 ha chiamato un ascensore
+(10:06:54.449) A0 -> aggiungi alla coda P2; coda -> P2
+(10:06:54.498) P0 ha chiamato un ascensore
+(10:06:54.500) A1 -> aggiungi alla coda P0; coda -> P0
+(10:06:54.502) A1 -> arrivato al piano P0; carico: 0.00%
+(10:06:54.503) A1 -> rimosso dalla coda il piano P0; coda ->
+(10:06:54.529) A0 -> arrivato al piano P2; carico: 0.00%
+(10:06:54.530) A0 -> rimosso dalla coda il piano P2; coda ->
+(10:06:54.547) A1 -> selezionato il piano P1; carico: 19.00%
+(10:06:54.548) A1 -> aggiungi alla coda P1; coda -> P1
+(10:06:54.561) P3 ha chiamato un ascensore
+(10:06:54.561) A1 -> aggiungi alla coda P3; coda -> P1, P3
+(10:06:54.573) A0 -> selezionato il piano P0; carico: 19.25%
+(10:06:54.574) A0 -> aggiungi alla coda P0; coda -> P0
+(10:06:54.608) A1 -> arrivato al piano P1; carico: 19.00%
+(10:06:54.609) A1 -> rimosso dalla coda il piano P1; coda -> P3
+(10:06:54.615) P0 ha chiamato un ascensore
+(10:06:54.616) A1 -> aggiungi alla coda P0; coda -> P3, P0
+(10:06:54.663) A0 -> arrivato al piano P0; carico: 19.25%
+(10:06:54.665) A0 -> rimosso dalla coda il piano P0; coda ->
+(10:06:54.677) P0 ha chiamato un ascensore
+(10:06:54.679) A1 -> aggiungi alla coda P0; coda -> P3, P0
+(10:06:54.691) A1 -> ordinata la coda dei piani; coda -> P0, P3
+(10:06:54.692) A1 -> ordinata la coda dei piani; coda -> P3, P0
+(10:06:54.712) A0 -> selezionato il piano P2; carico: 13.75%
+(10:06:54.713) A0 -> aggiungi alla coda P2; coda -> P0, P2
+(10:06:54.714) A0 -> arrivato al piano P0; carico: 13.75%
+(10:06:54.715) A0 -> rimosso dalla coda il piano P0; coda -> P2
+(10:06:54.740) A1 -> arrivato al piano P3; carico: 0.00%
+(10:06:54.741) A1 -> rimosso dalla coda il piano P3; coda -> P0
+(10:06:54.788) A1 -> selezionato il piano P0; carico: 44.75%
+(10:06:54.789) A1 -> aggiungi alla coda P0; coda -> P0
+(10:06:54.795) A1 -> ordinata la coda dei piani; coda -> P0
+(10:06:54.797) P0 ha chiamato un ascensore
+(10:06:54.799) A1 -> aggiungi alla coda P0; coda -> P0
+(10:06:54.823) A1 -> ordinata la coda dei piani; coda -> P0
+(10:06:54.837) A1 -> ordinata la coda dei piani; coda -> P0
+(10:06:54.844) A0 -> arrivato al piano P2; carico: 29.25%
+(10:06:54.846) A0 -> rimosso dalla coda il piano P2; coda ->
+(10:06:54.858) P1 ha chiamato un ascensore
+(10:06:54.859) A0 -> aggiungi alla coda P1; coda -> P1
+(10:06:54.899) A1 -> arrivato al piano P0; carico: 44.75%
+(10:06:54.901) A1 -> rimosso dalla coda il piano P0; coda ->
+(10:06:54.913) P0 ha chiamato un ascensore
+(10:06:54.915) A0 -> aggiungi alla coda P0; coda -> P1, P0
+(10:06:54.948) A1 -> selezionato il piano P1; carico: 23.00%
+(10:06:54.949) A1 -> aggiungi alla coda P1; coda -> P0, P1
+(10:06:54.951) A1 -> arrivato al piano P0; carico: 23.00%
+(10:06:54.952) A1 -> rimosso dalla coda il piano P0; coda -> P1
+(10:06:54.956) A0 -> arrivato al piano P1; carico: 0.00%
+(10:06:54.957) A0 -> rimosso dalla coda il piano P1; coda -> P0
+(10:06:54.976) P0 ha chiamato un ascensore
+(10:06:54.977) A1 -> aggiungi alla coda P0; coda -> P0, P1, P0
+(10:06:54.997) A1 -> arrivato al piano P0; carico: 43.00%
+(10:06:54.998) A1 -> rimosso dalla coda il piano P0; coda -> P1
+(10:06:55.03) A0 -> selezionato il piano P0; carico: 20.75%
+(10:06:55.05) A0 -> aggiungi alla coda P0; coda -> P0
+(10:06:55.31) P0 ha chiamato un ascensore
+(10:06:55.34) A0 -> aggiungi alla coda P0; coda -> P0
+(10:06:55.45) A1 -> arrivato al piano P0; carico: 62.50%
+(10:06:55.47) A1 -> rimosso dalla coda il piano P0; coda -> P1
+(10:06:55.66) A0 -> arrivato al piano P0; carico: 20.75%
+(10:06:55.68) A0 -> rimosso dalla coda il piano P0; coda ->
+(10:06:55.94) P0 ha chiamato un ascensore
+(10:06:55.102) A1 -> aggiungi alla coda P0; coda -> P1, P0
+(10:06:55.117) A0 -> arrivato al piano P0; carico: 0.00%
+(10:06:55.122) A0 -> rimosso dalla coda il piano P0; coda ->
+(10:06:55.149) P0 ha chiamato un ascensore
+(10:06:55.151) A1 -> aggiungi alla coda P0; coda -> P1, P0
+(10:06:55.153) A1 -> arrivato al piano P1; carico: 80.50%
+(10:06:55.155) A1 -> rimosso dalla coda il piano P1; coda -> P0
+(10:06:55.162) A0 -> selezionato il piano P3; carico: 24.25%
+(10:06:55.164) A0 -> aggiungi alla coda P3; coda -> P0, P3
+(10:06:55.169) A0 -> arrivato al piano P0; carico: 24.25%
+(10:06:55.171) A0 -> rimosso dalla coda il piano P0; coda -> P3
+(10:06:55.205) A0 -> selezionato il piano P1; carico: 44.00%
+(10:06:55.207) A0 -> aggiungi alla coda P1; coda -> P3, P1
+(10:06:55.212) P3 ha chiamato un ascensore
+(10:06:55.214) A0 -> aggiungi alla coda P3; coda -> P3, P1, P3
+(10:06:55.240) A1 -> ordinata la coda dei piani; coda -> P0
+(10:06:55.254) A1 -> ordinata la coda dei piani; coda -> P0
+(10:06:55.261) A1 -> arrivato al piano P0; carico: 0.00%
+(10:06:55.264) A1 -> rimosso dalla coda il piano P0; coda ->
+(10:06:55.275) P0 ha chiamato un ascensore
+(10:06:55.278) A0 -> aggiungi alla coda P0; coda -> P3, P1, P3, P0
+(10:06:55.309) A1 -> arrivato al piano P0; carico: 0.00%
+(10:06:55.313) A1 -> rimosso dalla coda il piano P0; coda ->
+(10:06:55.320) A0 -> arrivato al piano P3; carico: 44.00%
+(10:06:55.322) A0 -> rimosso dalla coda il piano P3; coda -> P1, P0
+(10:06:55.331) P3 ha chiamato un ascensore
+(10:06:55.333) A0 -> aggiungi alla coda P3; coda -> P3, P1, P0, P3
+(10:06:55.358) A1 -> selezionato il piano P3; carico: 20.00%
+(10:06:55.360) A1 -> aggiungi alla coda P3; coda -> P3
+(10:06:55.365) A0 -> selezionato il piano P0; carico: 44.25%
+(10:06:55.367) A0 -> aggiungi alla coda P0; coda -> P3, P1, P0, P3, P0
+(10:06:55.370) A0 -> arrivato al piano P3; carico: 44.25%
+(10:06:55.372) A0 -> rimosso dalla coda il piano P3; coda -> P1, P0, P0
+(10:06:55.392) P2 ha chiamato un ascensore
+(10:06:55.395) A0 -> aggiungi alla coda P2; coda -> P1, P0, P0, P2
+(10:06:55.397) A1 -> ordinata la coda dei piani; coda -> P3
+(10:06:55.408) A1 -> ordinata la coda dei piani; coda -> P3
+(10:06:55.448) A1 -> ordinata la coda dei piani; coda -> P3
+(10:06:55.452) P0 ha chiamato un ascensore
+(10:06:55.454) A1 -> aggiungi alla coda P0; coda -> P3, P0
+(10:06:55.470) A1 -> arrivato al piano P3; carico: 20.00%
+(10:06:55.472) A1 -> rimosso dalla coda il piano P3; coda -> P0
+(10:06:55.503) A0 -> arrivato al piano P1; carico: 66.25%
+(10:06:55.506) A0 -> rimosso dalla coda il piano P1; coda -> P0, P0, P2
+(10:06:55.545) A1 -> ordinata la coda dei piani; coda -> P0
+(10:06:55.566) A1 -> ordinata la coda dei piani; coda -> P0
+(10:06:55.608) A0 -> arrivato al piano P0; carico: 46.50%
+(10:06:55.610) A0 -> rimosso dalla coda il piano P0; coda -> P2
+(10:06:55.622) A1 -> arrivato al piano P0; carico: 0.00%
+(10:06:55.625) A1 -> rimosso dalla coda il piano P0; coda ->
+(10:06:55.630) P0 ha chiamato un ascensore
+(10:06:55.633) A0 -> aggiungi alla coda P0; coda -> P0, P2, P0
+(10:06:55.656) A0 -> selezionato il piano P3; carico: 55.25%
+(10:06:55.660) A0 -> aggiungi alla coda P3; coda -> P0, P2, P0, P3
+(10:06:55.662) A0 -> arrivato al piano P0; carico: 55.25%
+(10:06:55.665) A0 -> rimosso dalla coda il piano P0; coda -> P2, P3
+(10:06:55.685) P1 ha chiamato un ascensore
+(10:06:55.688) A1 -> aggiungi alla coda P1; coda -> P1
+(10:06:55.705) A0 -> selezionato il piano P2; carico: 69.50%
+(10:06:55.708) A0 -> aggiungi alla coda P2; coda -> P2, P3, P2
+(10:06:55.740) A1 -> vai subito al piano P1; coda -> P1
+(10:06:55.743) A1 -> ordinata la coda dei piani; coda -> P1
+(10:06:55.749) P0 ha chiamato un ascensore
+(10:06:55.752) A1 -> aggiungi alla coda P0; coda -> P1, P0
+(10:06:55.755) A1 -> arrivato al piano P1; carico: 0.00%
+(10:06:55.758) A1 -> rimosso dalla coda il piano P1; coda -> P0
+(10:06:55.795) A0 -> arrivato al piano P2; carico: 69.50%
+(10:06:55.798) A0 -> rimosso dalla coda il piano P2; coda -> P3
+(10:06:55.801) A1 -> selezionato il piano P0; carico: 15.50%
+(10:06:55.804) A1 -> aggiungi alla coda P0; coda -> P0
+(10:06:55.844) A0 -> selezionato il piano P0; carico: 76.00%
+(10:06:55.847) A0 -> aggiungi alla coda P0; coda -> P3, P0
+(10:06:55.859) A1 -> arrivato al piano P0; carico: 15.50%
+(10:06:55.862) A1 -> rimosso dalla coda il piano P0; coda ->
+(10:06:55.869) P0 ha chiamato un ascensore
+(10:06:55.872) A0 -> aggiungi alla coda P0; coda -> P3, P0
+(10:06:55.907) A0 -> arrivato al piano P3; carico: 76.00%
+(10:06:55.910) A0 -> rimosso dalla coda il piano P3; coda -> P0
+(10:06:55.913) A1 -> selezionato il piano P1; carico: 40.75%
+(10:06:55.916) A1 -> aggiungi alla coda P1; coda -> P0, P1
+(10:06:55.919) A1 -> arrivato al piano P0; carico: 40.75%
+(10:06:55.922) A1 -> rimosso dalla coda il piano P0; coda -> P1
+(10:06:55.932) P0 ha chiamato un ascensore
+(10:06:55.935) A0 -> aggiungi alla coda P0; coda -> P0
+(10:06:55.955) A1 -> selezionato il piano P2; carico: 64.50%
+(10:06:55.958) A1 -> aggiungi alla coda P2; coda -> P0, P1, P2
+(10:06:55.961) A1 -> arrivato al piano P0; carico: 64.50%
+(10:06:55.964) A1 -> rimosso dalla coda il piano P0; coda -> P1, P2
+(10:06:55.983) P2 ha chiamato un ascensore
+(10:06:55.987) A1 -> aggiungi alla coda P2; coda -> P1, P2
+(10:06:55.990) A1 -> vai subito al piano P2; coda -> P1, P2
+(10:06:56.03) A1 -> vai subito al piano P1; coda -> P2, P1, P2
+(10:06:56.46) P0 ha chiamato un ascensore
+(10:06:56.57) A1 -> aggiungi alla coda P0; coda -> P1, P2, P1, P2, P0
+(10:06:56.80) A0 -> arrivato al piano P0; carico: 20.75%
+(10:06:56.86) A0 -> rimosso dalla coda il piano P0; coda ->
+(10:06:56.92) A1 -> arrivato al piano P1; carico: 81.75%
+(10:06:56.97) A1 -> rimosso dalla coda il piano P1; coda -> P2, P2, P0
+(10:06:56.112) P3 ha chiamato un ascensore
+(10:06:56.117) A1 -> aggiungi alla coda P3; coda -> P2, P2, P0, P3
+(10:06:56.121) A0 -> selezionato il piano P2; carico: 21.00%
+(10:06:56.125) A0 -> aggiungi alla coda P2; coda -> P2
+(10:06:56.143) A1 -> ordinata la coda dei piani; coda -> P0, P2, P2, P3
+(10:06:56.147) A1 -> ordinata la coda dei piani; coda -> P3, P2, P2, P0
+(10:06:56.156) A1 -> vai subito al piano P2; coda -> P3, P2, P2, P0
+(10:06:56.160) A1 -> ordinata la coda dei piani; coda -> P0, P2, P2, P2, P3
+(10:06:56.163) A1 -> ordinata la coda dei piani; coda -> P3, P2, P2, P2, P0
+(10:06:56.171) P0 ha chiamato un ascensore
+(10:06:56.175) A1 -> aggiungi alla coda P0; coda -> P3, P2, P2, P2, P0
+(10:06:56.198) A0 -> arrivato al piano P2; carico: 21.00%
+(10:06:56.202) A0 -> rimosso dalla coda il piano P2; coda ->
+(10:06:56.205) A1 -> arrivato al piano P3; carico: 23.75%
+(10:06:56.209) A1 -> rimosso dalla coda il piano P3; coda -> P2, P2, P2, P0
+(10:06:56.240) A0 -> selezionato il piano P3; carico: 20.50%
+(10:06:56.243) A0 -> aggiungi alla coda P3; coda -> P3
+(10:06:56.251) A1 -> selezionato il piano P0; carico: 41.00%
+(10:06:56.255) A1 -> aggiungi alla coda P0; coda -> P2, P2, P2, P0
+(10:06:56.302) A0 -> arrivato al piano P3; carico: 20.50%
+(10:06:56.306) A0 -> rimosso dalla coda il piano P3; coda ->
+(10:06:56.314) A1 -> arrivato al piano P2; carico: 41.00%
+(10:06:56.318) A1 -> rimosso dalla coda il piano P2; coda -> P0
+(10:06:56.347) P3 ha chiamato un ascensore
+(10:06:56.351) A0 -> aggiungi alla coda P3; coda -> P3
+(10:06:56.360) A0 -> arrivato al piano P3; carico: 0.00%
+(10:06:56.364) A0 -> rimosso dalla coda il piano P3; coda ->
+(10:06:56.392) A1 -> ordinata la coda dei piani; coda -> P0
+(10:06:56.400) A0 -> selezionato il piano P0; carico: 16.25%
+(10:06:56.404) A0 -> aggiungi alla coda P0; coda -> P0
+(10:06:56.408) P2 ha chiamato un ascensore
+(10:06:56.411) A1 -> aggiungi alla coda P2; coda -> P0, P2
+(10:06:56.435) A1 -> vai subito al piano P2; coda -> P0, P2
+(10:06:56.440) A1 -> ordinata la coda dei piani; coda -> P0, P2, P2
+(10:06:56.444) A1 -> ordinata la coda dei piani; coda -> P2, P2, P0
+(10:06:56.453) A1 -> ordinata la coda dei piani; coda -> P0, P2, P2
+(10:06:56.458) A1 -> ordinata la coda dei piani; coda -> P2, P2, P0
+(10:06:56.483) A1 -> ordinata la coda dei piani; coda -> P0, P2, P2
+(10:06:56.490) A1 -> ordinata la coda dei piani; coda -> P2, P2, P0
+(10:06:56.510) A0 -> arrivato al piano P0; carico: 16.25%
+(10:06:56.515) A0 -> rimosso dalla coda il piano P0; coda ->
+(10:06:56.524) P0 ha chiamato un ascensore
+(10:06:56.531) A1 -> aggiungi alla coda P0; coda -> P2, P2, P0
+(10:06:56.542) A1 -> arrivato al piano P2; carico: 17.25%
+(10:06:56.547) A1 -> rimosso dalla coda il piano P2; coda -> P0
+(10:06:56.556) A0 -> selezionato il piano P1; carico: 74.25%
+(10:06:56.560) A0 -> aggiungi alla coda P1; coda -> P1
+(10:06:56.564) A0 -> selezionato il piano P2; carico: 74.25%
+(10:06:56.569) A0 -> aggiungi alla coda P2; coda -> P1, P2
+(10:06:56.580) P2 ha chiamato un ascensore
+(10:06:56.585) A1 -> aggiungi alla coda P2; coda -> P2, P0, P2
+(10:06:56.590) A1 -> arrivato al piano P2; carico: 35.00%
+(10:06:56.594) A1 -> rimosso dalla coda il piano P2; coda -> P0
+(10:06:56.615) A0 -> arrivato al piano P1; carico: 74.25%
+(10:06:56.623) A0 -> rimosso dalla coda il piano P1; coda -> P2
+(10:06:56.663) A1 -> ordinata la coda dei piani; coda -> P0
+(10:06:56.719) A1 -> arrivato al piano P0; carico: 58.00%
+(10:06:56.724) A1 -> rimosso dalla coda il piano P0; coda ->
+(10:06:56.739) A0 -> arrivato al piano P2; carico: 46.00%
+(10:06:56.744) A0 -> rimosso dalla coda il piano P2; coda ->
+(10:06:56.761) P1 ha chiamato un ascensore
+(10:06:56.768) A1 -> aggiungi alla coda P1; coda -> P1
+(10:06:56.774) A1 -> selezionato il piano P1; carico: 52.50%
+(10:06:56.778) A1 -> aggiungi alla coda P1; coda -> P1
+(10:06:56.783) A1 -> selezionato il piano P3; carico: 52.50%
+(10:06:56.787) A1 -> aggiungi alla coda P3; coda -> P1, P3
+(10:06:56.816) P3 ha chiamato un ascensore
+(10:06:56.822) A0 -> aggiungi alla coda P3; coda -> P3
+(10:06:56.831) A1 -> arrivato al piano P1; carico: 52.50%
+(10:06:56.836) A1 -> rimosso dalla coda il piano P1; coda -> P3
+(10:06:56.879) P2 ha chiamato un ascensore
+(10:06:56.884) A0 -> aggiungi alla coda P2; coda -> P3, P2
+(10:06:56.888) A0 -> arrivato al piano P3; carico: 0.00%
+(10:06:56.893) A0 -> rimosso dalla coda il piano P3; coda -> P2
+(10:06:56.911) A1 -> ordinata la coda dei piani; coda -> P3
+(10:06:56.928) A0 -> selezionato il piano P0; carico: 22.50%
+(10:06:56.933) A0 -> aggiungi alla coda P0; coda -> P2, P0
